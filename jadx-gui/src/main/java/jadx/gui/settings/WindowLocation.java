@@ -39,12 +39,11 @@ public class WindowLocation {
 
 	@Override
 	public String toString() {
-		return "WindowLocation{" +
-				"id='" + windowId + '\'' +
-				", x=" + x +
-				", y=" + y +
-				", width=" + width +
-				", height=" + height +
-				'}';
+		return "WindowLocation{id='" + windowId + '\''
+				+ ", x=" + x
+				+ ", y=" + y
+				+ ", width=" + width
+				+ ", height=" + height
+				+ '}';
 	}
 }

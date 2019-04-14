@@ -30,12 +30,12 @@ public class TestInitializers extends AbstractTest {
 			}
 		}
 
-		public B(int _b) {
-			b = _b;
+		public B(int pb) {
+			b = pb;
 		}
 
-		public void setB(int _b) {
-			b = _b;
+		public void setB(int pb) {
+			b = pb;
 		}
 
 		public int getB() {

@@ -228,8 +228,8 @@ public final class IfCondition {
 							|| ifOp == IfOp.EQ && lit == 1;
 
 					IfOp op = isTrue ? IfOp.NE : IfOp.EQ;
-					Mode mode = isTrue && arithOp == ArithOp.OR ||
-							!isTrue && arithOp == ArithOp.AND ? Mode.OR : Mode.AND;
+					Mode mode = isTrue && arithOp == ArithOp.OR
+							|| !isTrue && arithOp == ArithOp.AND ? Mode.OR : Mode.AND;
 
 					IfNode if1 = new IfNode(op, -1, wrapInsn.getArg(0), LiteralArg.FALSE);
 					IfNode if2 = new IfNode(op, -1, wrapInsn.getArg(1), LiteralArg.FALSE);
@@ -237,12 +237,11 @@ public final class IfCondition {
 							Arrays.asList(new IfCondition(new Compare(if1)),
 									new IfCondition(new Compare(if2))));
 				}
-			break;
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
-
 
 		return null;
 	}
@@ -273,7 +272,7 @@ public final class IfCondition {
 				String op = mode == Mode.OR ? " || " : " && ";
 				StringBuilder sb = new StringBuilder();
 				sb.append('(');
-				for (Iterator<IfCondition> it = args.iterator(); it.hasNext(); ) {
+				for (Iterator<IfCondition> it = args.iterator(); it.hasNext();) {
 					IfCondition arg = it.next();
 					sb.append(arg);
 					if (it.hasNext()) {
@@ -299,7 +298,7 @@ public final class IfCondition {
 			return false;
 		}
 		return Objects.equals(args, other.args)
-			&& Objects.equals(compare, other.compare);
+				&& Objects.equals(compare, other.compare);
 	}
 
 	@Override

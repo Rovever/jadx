@@ -41,12 +41,12 @@ import jadx.core.utils.BlockUtils;
 import jadx.core.utils.Utils;
 
 @JadxVisitor(
-	name = "Type Inference",
-	desc = "Calculate best types for SSA variables",
-	runAfter = {
-		SSATransform.class,
-		ConstInlineVisitor.class
-	}
+		name = "Type Inference",
+		desc = "Calculate best types for SSA variables",
+		runAfter = {
+				SSATransform.class,
+				ConstInlineVisitor.class
+		}
 )
 public final class TypeInferenceVisitor extends AbstractVisitor {
 	private static final Logger LOG = LoggerFactory.getLogger(TypeInferenceVisitor.class);
@@ -76,8 +76,8 @@ public final class TypeInferenceVisitor extends AbstractVisitor {
 		for (SSAVar var : mth.getSVars()) {
 			ArgType type = var.getTypeInfo().getType();
 			if (!type.isTypeKnown()
-				    && !var.getAssign().isTypeImmutable()
-				    && !tryDeduceType(mth, var, type)) {
+					&& !var.getAssign().isTypeImmutable()
+					&& !tryDeduceType(mth, var, type)) {
 				resolved = false;
 			}
 		}
@@ -175,9 +175,9 @@ public final class TypeInferenceVisitor extends AbstractVisitor {
 
 	private Optional<ArgType> selectBestTypeFromBounds(Set<ITypeBound> bounds) {
 		return bounds.stream()
-			       .map(ITypeBound::getType)
-			       .filter(Objects::nonNull)
-			       .max(typeUpdate.getArgTypeComparator());
+				.map(ITypeBound::getType)
+				.filter(Objects::nonNull)
+				.max(typeUpdate.getArgTypeComparator());
 	}
 
 	private void attachBounds(SSAVar var) {

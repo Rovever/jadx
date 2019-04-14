@@ -39,8 +39,7 @@ public class JadxSettingsAdapter {
 	};
 	private static final GsonBuilder GSON_BUILDER = new GsonBuilder()
 			.setExclusionStrategies(EXCLUDE_FIELDS)
-			.registerTypeHierarchyAdapter(Path.class, PathTypeAdapter.singleton())
-			;
+			.registerTypeHierarchyAdapter(Path.class, PathTypeAdapter.singleton());
 	private static final Gson GSON = GSON_BUILDER.create();
 
 	private JadxSettingsAdapter() {

@@ -32,7 +32,9 @@ import jadx.core.xmlgen.ResourcesSaver;
 
 /**
  * Jadx API usage example:
- * <pre><code>
+ *
+ * <pre>
+ * <code>
  * JadxArgs args = new JadxArgs();
  * args.getInputFiles().add(new File("test.apk"));
  * args.setOutDir(new File("jadx-test-output"));
@@ -40,14 +42,18 @@ import jadx.core.xmlgen.ResourcesSaver;
  * JadxDecompiler jadx = new JadxDecompiler(args);
  * jadx.load();
  * jadx.save();
- * </code></pre>
+ * </code>
+ * </pre>
  * <p>
  * Instead of 'save()' you can iterate over decompiled classes:
- * <pre><code>
+ *
+ * <pre>
+ * <code>
  *  for(JavaClass cls : jadx.getClasses()) {
  *      System.out.println(cls.getCode());
  *  }
- * </code></pre>
+ * </code>
+ * </pre>
  */
 public final class JadxDecompiler {
 	private static final Logger LOG = LoggerFactory.getLogger(JadxDecompiler.class);

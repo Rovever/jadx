@@ -29,8 +29,8 @@ public class PathTypeAdapter {
 				@Override
 				public Path read(JsonReader in) throws IOException {
 					if (in.peek() == JsonToken.NULL) {
-				         in.nextNull();
-				         return null;
+						in.nextNull();
+						return null;
 					}
 					return Paths.get(in.nextString());
 				}

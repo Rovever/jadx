@@ -26,7 +26,7 @@ import jadx.core.utils.exceptions.JadxException;
 @JadxVisitor(
 		name = "PrepareForCodeGen",
 		desc = "Prepare instructions for code generation pass",
-		runAfter = {CodeShrinkVisitor.class, ClassModifier.class, ProcessVariables.class}
+		runAfter = { CodeShrinkVisitor.class, ClassModifier.class, ProcessVariables.class }
 )
 public class PrepareForCodeGen extends AbstractVisitor {
 
@@ -42,7 +42,7 @@ public class PrepareForCodeGen extends AbstractVisitor {
 			}
 			removeInstructions(block);
 			checkInline(block);
-//			removeParenthesis(block);
+			// removeParenthesis(block);
 			modifyArith(block);
 		}
 	}
@@ -68,7 +68,7 @@ public class PrepareForCodeGen extends AbstractVisitor {
 
 				case MOVE:
 					// remove redundant moves:
-					//   unused result and same args names (a = a;)
+					// unused result and same args names (a = a;)
 					RegisterArg result = insn.getResult();
 					if (result.getSVar().getUseCount() == 0
 							&& result.isNameEquals(insn.getArg(0))) {
@@ -104,7 +104,7 @@ public class PrepareForCodeGen extends AbstractVisitor {
 	}
 
 	/**
-	 * Remove parenthesis for wrapped insn  in arith '+' or '-'
+	 * Remove parenthesis for wrapped insn in arith '+' or '-'
 	 * ('(a + b) +c' => 'a + b + c')
 	 */
 	private static void checkInsn(InsnNode insn) {

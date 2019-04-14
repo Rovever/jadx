@@ -6,14 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.android.dex.ClassData;
 import com.android.dex.ClassData.Field;
 import com.android.dex.ClassData.Method;
 import com.android.dex.ClassDef;
 import com.android.dex.Dex;
-import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import jadx.core.Consts;
 import jadx.core.codegen.CodeWriter;
@@ -32,7 +33,6 @@ import jadx.core.dex.nodes.parser.AnnotationsParser;
 import jadx.core.dex.nodes.parser.FieldInitAttr;
 import jadx.core.dex.nodes.parser.SignatureParser;
 import jadx.core.dex.nodes.parser.StaticValuesParser;
-import jadx.core.utils.RegionUtils;
 import jadx.core.utils.exceptions.DecodeException;
 import jadx.core.utils.exceptions.JadxRuntimeException;
 
@@ -354,7 +354,8 @@ public class ClassNode extends LineAttrNode implements ILoadable, ICodeNode {
 
 	/**
 	 * Return first method by original short name
-	 * Note: methods are not unique by name (class can have several methods with same name but different signature)
+	 * Note: methods are not unique by name (class can have several methods with same name but different
+	 * signature)
 	 */
 	@Nullable
 	public MethodNode searchMethodByShortName(String name) {

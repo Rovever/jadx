@@ -32,8 +32,7 @@ public final class TypeBoundConst implements ITypeBound {
 			return false;
 		}
 		TypeBoundConst that = (TypeBoundConst) o;
-		return bound == that.bound &&
-				Objects.equals(type, that.type);
+		return bound == that.bound && Objects.equals(type, that.type);
 	}
 
 	@Override

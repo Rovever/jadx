@@ -1,7 +1,6 @@
 package jadx.core.dex.visitors.regions.variables;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -45,7 +44,8 @@ public class ProcessVariables extends AbstractVisitor {
 			return;
 		}
 		checkCodeVars(mth, codeVars);
-		// TODO: reduce code vars by name if debug info applied. Need checks for variable scopes before reduce
+		// TODO: reduce code vars by name if debug info applied. Need checks for variable scopes before
+		// reduce
 
 		// collect all variables usage
 		CollectUsageRegionVisitor usageCollector = new CollectUsageRegionVisitor();

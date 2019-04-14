@@ -37,8 +37,7 @@ public class JadxSettings extends JadxCLIArgs {
 	private static final Font DEFAULT_FONT = new RSyntaxTextArea().getFont();
 
 	static final Set<String> SKIP_FIELDS = new HashSet<>(Arrays.asList(
-			"files", "input", "outDir", "outDirSrc", "outDirRes", "verbose", "printVersion", "printHelp"
-	));
+			"files", "input", "outDir", "outDirSrc", "outDirRes", "verbose", "printVersion", "printHelp"));
 	private Path lastSaveProjectPath = USER_HOME;
 	private Path lastOpenFilePath = USER_HOME;
 	private Path lastSaveFilePath = USER_HOME;
@@ -151,8 +150,7 @@ public class JadxSettings extends JadxCLIArgs {
 	public void saveWindowPos(Window window) {
 		WindowLocation pos = new WindowLocation(window.getClass().getSimpleName(),
 				window.getX(), window.getY(),
-				window.getWidth(), window.getHeight()
-		);
+				window.getWidth(), window.getHeight());
 		windowPos.put(pos.getWindowId(), pos);
 		partialSync(settings -> settings.windowPos = windowPos);
 	}
